@@ -1,0 +1,39 @@
+{
+  "name": "calc",
+  "version": "0.0.0",
+  "description": "My Project",
+  "esy": {
+    "build": "pesy",
+    "buildsInSource": "_build",
+    "release": { "releasedBinaries": [ "CalcApp.exe" ] }
+  },
+  "buildDirs": {
+    "test": {
+      "require": [ "calc.lib", "rely.lib" ],
+      "ocamloptFlags": ["-linkall", "-g"],
+      "main": "TestCalc",
+      "name": "TestCalc.exe"
+    },
+    "library": { "name": "calc.lib", "namespace": "Calc" },
+    "executable": {
+      "require": [ "cmdliner", "pastel.lib", "calc.lib" ],
+      "main": "CalcApp",
+      "name": "CalcApp.exe"
+    }
+  },
+  "scripts": {
+    "pesy": "bash -c 'env PESY_MODE=update pesy'",
+    "test": "esy x TestCalc.exe"
+  },
+  "dependencies": {
+    "@esy-ocaml/reason": "*",
+    "@opam/cmdliner": "1.0.3",
+    "@opam/dune": ">=1.6.0",
+    "@reason-native/pastel": "^0.1.0",
+    "@reason-native/rely": "^1.1.0",
+    "ocaml": "^4.4.0",
+    "pesy": "*",
+    "refmterr": "*"
+  },
+  "devDependencies": { "@opam/merlin": "*", "isexe": "^2.0.0" }
+}
