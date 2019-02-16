@@ -4,7 +4,6 @@
   "description": "My Project",
   "esy": {
     "build": "pesy",
-    "buildsInSource": "_build",
     "release": { "releasedBinaries": [ "CalcApp.exe" ] }
   },
   "buildDirs": {
